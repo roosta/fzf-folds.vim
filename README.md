@@ -15,7 +15,6 @@ selected.
 
 ## Requirements
 
-- [fzf](https://github.com/junegunn/fzf)
 - [fzf.vim](https://github.com/junegunn/fzf.vim)
 
 ## Installation
