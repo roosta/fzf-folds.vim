@@ -22,7 +22,7 @@ TBD
 
 ## Usage
 
-fzfolds exposes a command `:Fzfolds`, use this command to start fzfolds in
+fzfolds exposes a command `:Folds`, use this command to start fzfolds in
 currently opened file. It can be useful to bind this command to something:
 
 ```vim
