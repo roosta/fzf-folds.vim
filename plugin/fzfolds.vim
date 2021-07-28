@@ -29,9 +29,23 @@ function! CollectFolds() abort
 
   endfor
 
+  " Move cursor back where we started
   call cursor(cursor_pos[1], cursor_pos[2])
-  echo folds
 
+  echo folds
 endfunction
 
+function! FzfFoldsSink(word) abort
+  " exe 'normal! "_ciw'.a:word
+endfunction
+
+function! FzfFolds() abort
+  let folds = CollectFolds()
+  call fzf#run({'source': folds, 'sink': function('FzfFoldsSink')})
+endfunction
+
+
 command! Folds call CollectFolds()
+" command! Folds call FzfFolds()
+
+  " call map(folds, {_, val -> val[0] . ':' . val[1] . ':' . val[2] . ':' . val[3]})
