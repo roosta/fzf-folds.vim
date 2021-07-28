@@ -6,20 +6,22 @@ function! CollectFolds() abort
   let cursor_pos = getpos('.')
   call cursor(1, 0)
 
+  " Locate every fold, store information that lets us close and move to a fold
   while scanline != prevline
     let foldlevel = foldlevel(scanline)
     if (foldlevel > 0)
       let line = getline(scanline)
       let closed = foldclosed(scanline)
-      call add(folds, [line, scanline, foldlevel, closed])
+      call add(folds, [scanline, foldlevel, closed, line])
       normal! zozj
     endif
     let prevline = scanline
     let scanline = line('.')
   endwhile
 
+  " Move through and close all the folds we opened
   for fl in folds
-    let [line, scanline, foldlevel, closed] = fl
+    let [scanline, foldlevel, closed, line] = fl
     if (closed >= 0)
       call cursor(scanline, 0)
       normal! zc
