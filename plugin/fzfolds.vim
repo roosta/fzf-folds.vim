@@ -66,6 +66,7 @@ function! FzFolds() abort
         \ 'source': folds,
         \ 'sink': function('FzFoldsSink'),
         \ 'options': ['--delimiter', ':', '--with-nth', '2..'],
+        \ 'window': { 'width': 0.8, 'height': 0.8 },
         \ })
 endfunction
 
