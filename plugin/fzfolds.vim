@@ -23,7 +23,7 @@ function! CollectFolds() abort
   endwhile
 
   " Move through and close all the folds we opened
-  for fl in folds
+  for fl in reverse(copy(folds))
     let [scanline, foldlevel, closed, line] = fl
     if (closed >= 0)
       call cursor(scanline, 0)
