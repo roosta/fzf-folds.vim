@@ -49,21 +49,26 @@ function! CollectFolds() abort
   return folds
 endfunction
 
-function! FzfFoldsSink(word) abort
-  " exe 'normal! "_ciw'.a:word
+function! FzFoldsSink(fold) abort
+  let [linum; rest] = split(a:fold, ':')
+  call cursor(linum, 0)
 endfunction
 
-function! FzfFolds() abort
+function! FzFolds() abort
   try
     let folds = CollectFolds()
   catch
     return s:warn(v:exception)
   endtry
 
-  call fzf#run({'source': folds, 'sink': function('FzfFoldsSink')})
+  call fzf#run({
+        \ 'source': folds,
+        \ 'sink': function('FzFoldsSink'),
+        \ 'options': ['--delimiter', ':', '--with-nth', '2..'],
+        \ })
 endfunction
 
 
 " command! Folds call CollectFolds()
-command! Folds call FzfFolds()
+command! Folds call FzFolds()
 
