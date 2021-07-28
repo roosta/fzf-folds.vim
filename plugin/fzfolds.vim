@@ -1,4 +1,4 @@
-function! CollectFolds()
+function! CollectFolds() abort
   let scanline = 1
   let prevline = -1
   let folds = []
