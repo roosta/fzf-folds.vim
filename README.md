@@ -24,9 +24,9 @@ TBD
 
 ## Usage
 
-fzfolds exposes a command `:Folds`, use this command to start fzfolds in
+fzfolds exposes a command `:FFolds`, use this command to start fzfolds in
 currently opened file. It can be useful to bind this command to something:
 
 ```vim
-nnoremap <leader>jf :Fzfolds<CR>
+nnoremap <leader>jf :FFolds<CR>
 ```

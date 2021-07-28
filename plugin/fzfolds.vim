@@ -71,5 +71,5 @@ endfunction
 
 
 " command! Folds call CollectFolds()
-command! Folds call FzFolds()
+command! FFolds call FzFolds()
 
