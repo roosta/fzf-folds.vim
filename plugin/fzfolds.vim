@@ -23,8 +23,9 @@ function! CollectFolds() abort
       endif
       let foldtext = foldtextresult(scanline)
       call add(folds, [scanline, foldlevel, closed, foldtext])
-      normal! zozj
+      normal! zo
     endif
+    normal! zj
     let prevline = scanline
     let scanline = line('.')
   endwhile
