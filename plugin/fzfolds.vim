@@ -15,14 +15,13 @@ function! CollectFolds() abort
 
   " Locate every fold, store information that lets us close and move to a fold
   while scanline != prevline
-    let foldlevel = foldlevel(scanline)
-    if (foldlevel > 0)
+    if (foldlevel(scanline) > 0)
       let closed = foldclosed(scanline)
       if (closed == -1)
         normal! zc
       endif
       let foldtext = foldtextresult(scanline)
-      call add(folds, [scanline, foldlevel, closed, foldtext])
+      call add(folds, [scanline, closed, foldtext])
       normal! zo
     endif
     normal! zj
@@ -38,7 +37,7 @@ function! CollectFolds() abort
 
   " Move through and close all the folds we opened
   for fl in reverse(copy(folds))
-    let [scanline, foldlevel, closed, line] = fl
+    let [scanline, closed, line] = fl
     if (closed >= 0)
       call cursor(scanline, 0)
       normal! zc
@@ -46,7 +45,7 @@ function! CollectFolds() abort
 
   endfor
 
-  call map(folds, {_, val -> val[0] . ':' . val[3]})
+  call map(folds, {_, val -> val[0] . ':' . val[2]})
   return folds
 endfunction
 
