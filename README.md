@@ -3,6 +3,8 @@ fzfolds.vim
 
 Vim plugin that lets you fuzzy search for folds in a given file.
 
+## Rationale
+
 I don't know about you, but I love stuff like ctags, and I also love fzf. I
 love searching through my ctags using fzf. I also love folds, and use them
 liberally, especially fold markers, and I often section off parts of a file
