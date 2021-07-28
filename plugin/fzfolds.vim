@@ -1,3 +1,10 @@
+function! s:warn(message)
+  echohl WarningMsg
+  echom a:message
+  echohl None
+  return 0
+endfunction
+
 function! CollectFolds() abort
   let scanline = 1
   let prevline = -1
@@ -22,6 +29,12 @@ function! CollectFolds() abort
     let scanline = line('.')
   endwhile
 
+  if empty(folds)
+    " Move cursor back where we started
+    call cursor(cursor_pos[1], cursor_pos[2])
+    throw 'No folds found'
+  endif
+
   " Move through and close all the folds we opened
   for fl in reverse(copy(folds))
     let [scanline, foldlevel, closed, line] = fl
@@ -32,10 +45,8 @@ function! CollectFolds() abort
 
   endfor
 
-  " Move cursor back where we started
-  call cursor(cursor_pos[1], cursor_pos[2])
-
-  echo folds
+  call map(folds, {_, val -> val[0] . ':' . val[3]})
+  return folds
 endfunction
 
 function! FzfFoldsSink(word) abort
@@ -43,12 +54,16 @@ function! FzfFoldsSink(word) abort
 endfunction
 
 function! FzfFolds() abort
-  let folds = CollectFolds()
+  try
+    let folds = CollectFolds()
+  catch
+    return s:warn(v:exception)
+  endtry
+
   call fzf#run({'source': folds, 'sink': function('FzfFoldsSink')})
 endfunction
 
 
-command! Folds call CollectFolds()
-" command! Folds call FzfFolds()
+" command! Folds call CollectFolds()
+command! Folds call FzfFolds()
 
-  " call map(folds, {_, val -> val[0] . ':' . val[1] . ':' . val[2] . ':' . val[3]})
