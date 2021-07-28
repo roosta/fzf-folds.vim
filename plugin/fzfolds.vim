@@ -10,9 +10,12 @@ function! CollectFolds() abort
   while scanline != prevline
     let foldlevel = foldlevel(scanline)
     if (foldlevel > 0)
-      let line = getline(scanline)
       let closed = foldclosed(scanline)
-      call add(folds, [scanline, foldlevel, closed, line])
+      if (closed == -1)
+        normal! zc
+      endif
+      let foldtext = foldtextresult(scanline)
+      call add(folds, [scanline, foldlevel, closed, foldtext])
       normal! zozj
     endif
     let prevline = scanline
