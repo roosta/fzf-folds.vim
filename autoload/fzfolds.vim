@@ -1,3 +1,6 @@
+" fzfolds.vim - Fuzzy search for folds
+" Maintainer:   Daniel Berg <mail@roosta.sh>
+" Version:      0.1
 function! s:warn(message)
   echohl WarningMsg
   echom a:message
@@ -68,4 +71,3 @@ function! fzfolds#run() abort
         \ 'window': { 'width': 0.9, 'height': 0.7 },
         \ })
 endfunction
-
