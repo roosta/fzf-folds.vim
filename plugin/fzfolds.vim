@@ -6,4 +6,4 @@ if exists('g:loaded_fzfolds')
 endif
 let g:loaded_fzfolds = 1
 
-command! FFolds call fzfolds#run()
+command! Folds call fzfolds#run()
