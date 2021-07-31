@@ -48,7 +48,7 @@ function! s:collect_folds() abort
 
   endfor
 
-  call map(folds, {_, val -> val[0] . ':' . val[2]})
+  call map(folds, 'v:val[0] . ":" . v:val[2]')
   return folds
 endfunction
 
