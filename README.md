@@ -25,7 +25,7 @@ and it's great. Go check it out!
 
 ## Installation
 
-Use your favorite [plugin](https://github.com/tpope/vim-pathogen) [manager](https://github.com/VundleVim/Vundle.vim), [vim-plug](https://github.com/junegunn/vim-plug) for example:
+Use your favorite [plugin](https://github.com/tpope/vim-pathogen), [manager](https://github.com/VundleVim/Vundle.vim), [vim-plug](https://github.com/junegunn/vim-plug) for example:
 
 ```vim
 Plug 'roosta/fzfolds.vim'
