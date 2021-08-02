@@ -3,6 +3,10 @@ fzfolds.vim
 
 Vim plugin that lets you fuzzy search for folds in a file.
 
+## Demo
+
+![demo](https://raw.githubusercontent.com/roosta/assets/master/fzfolds.vim/demo.gif)
+
 ## Rationale
 
 I don't know about you, but I love stuff like ctags, and I also love fzf. I
