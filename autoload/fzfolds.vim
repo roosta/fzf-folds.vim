@@ -1,6 +1,11 @@
 " fzfolds.vim - Fuzzy search for folds
 " Maintainer:   Daniel Berg <mail@roosta.sh>
 " Version:      0.1
+
+if !exists('g:fzfolds_open')
+  let g:fzfolds_open = 0
+endif
+
 function! s:warn(message)
   echohl WarningMsg
   echom a:message
@@ -55,6 +60,9 @@ endfunction
 function! s:sink(fold) abort
   let [linum; rest] = split(a:fold, ':')
   call cursor(linum, 0)
+  if g:fzfolds_open == 1
+    normal! zv
+  endif
 endfunction
 
 function! fzfolds#run() abort

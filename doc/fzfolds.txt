@@ -26,9 +26,17 @@ https://github.com/junegunn/fzf.vim
 USAGE INSTRUCTIONS                                               *fzfolds-usage*
 
 :Folds                                                                  *:Folds*
-  Open a fzf popup and search for folds in file. On accept fzfolds will move
-  you to that folds line number. fzfolds will not open folds for you, just put
-  you at the line number.
+
+Open a fzf popup and search for folds in file. On accept fzfolds will move
+you to that folds line number. fzfolds will not open folds for you, just put
+you at the line number, unless `g:fzfolds_open = 1`
+
+
+==============================================================================
+OPTIONS                                                        *fzfolds-options*
+
+Currently only one option: `g:fzfolds_open`, if set to `1` fzfolds will open
+just enough folds to show the fold you selected (`zv`)
 
 ==============================================================================
 LICENSE                                                        *fzfolds-license*
