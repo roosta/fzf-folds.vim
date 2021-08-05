@@ -2,10 +2,6 @@
 " Maintainer:   Daniel Berg <mail@roosta.sh>
 " Version:      0.1
 
-if !exists('g:fzfolds_open')
-  let g:fzfolds_open = 0
-endif
-
 function! s:warn(message)
   echohl WarningMsg
   echom a:message
