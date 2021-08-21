@@ -1,4 +1,4 @@
-" fzfolds.vim - Fuzzy search for folds
+" fzf_folds.vim - Fuzzy search for folds using fzf
 " Maintainer:   Daniel Berg <mail@roosta.sh>
 " Version:      0.1
 
@@ -56,12 +56,12 @@ endfunction
 function! s:sink(fold) abort
   let [linum; rest] = split(a:fold, ':')
   call cursor(linum, 0)
-  if g:fzfolds_open == 1
+  if g:fzf_folds_open == 1
     normal! zv
   endif
 endfunction
 
-function! fzfolds#run() abort
+function! fzf_folds#run() abort
   try
     let folds = s:collect_folds()
   catch

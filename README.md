@@ -1,11 +1,11 @@
-fzfolds.vim
-===========
+fzf :heart: folds
+===============
 
 Vim plugin that lets you fuzzy search for folds in a file.
 
 ## Demo
 
-![demo](https://raw.githubusercontent.com/roosta/assets/master/fzfolds.vim/demo.gif)
+![demo](https://raw.githubusercontent.com/roosta/assets/master/fzf-folds.vim/demo.gif)
 
 ## Rationale
 
@@ -13,7 +13,7 @@ I don't know about you, but I love stuff like ctags, and I also love fzf. I
 love searching through my ctags using fzf. I also love folds, and use them
 liberally, especially fold markers, and I often section off parts of a file
 using markers, like a lot of markers. But sometimes I need to find a specific
-fold, that might be deeply nested. That's where fzfolds come in, it lets you
+fold, that might be deeply nested. That's where fzf-folds come in, it lets you
 fuzzy match for folds, and will put you at the starting point of the fold
 selected.
 
@@ -32,18 +32,18 @@ and it's great. Go check it out!
 Use your favorite [plugin](https://github.com/tpope/vim-pathogen), [manager](https://github.com/VundleVim/Vundle.vim), [vim-plug](https://github.com/junegunn/vim-plug) for example:
 
 ```vim
-Plug 'roosta/fzfolds.vim'
+Plug 'roosta/fzf-folds.vim'
 ```
 
 ## Usage instructions
 
-fzfolds introduce a command `:Folds`,
+fzf-folds introduce a command `:Folds`,
 
 `:Folds`
 
-Open a fzf popup and search for folds in file. On accept fzfolds will move
-you to that folds line number. fzfolds will not open folds for you, just put
-you at the line number, unless `g:fzfolds_open = 1`
+Open a fzf popup and search for folds in file. On accept fzf-folds will move
+you to that folds line number. fzf-folds will not open folds for you, just put
+you at the line number, unless `g:fzf_folds_open = 1`
 
 It can be useful to bind this command to something:
 ```vim
@@ -51,7 +51,7 @@ nnoremap <leader>jf :Folds<CR>
 ```
 ## Options
 
-Currently only one option: `g:fzfolds_open`, if set to `1` fzfolds will open
+Currently only one option: `g:fzf_folds_open`, if set to `1` fzf-folds will open
 just enough folds to show the fold you selected (`zv`)
 
 ## Reference
@@ -60,4 +60,4 @@ just enough folds to show the fold you selected (`zv`)
 
 ## License
 
-[MIT](https://github.com/roosta/fzfolds.vim/blob/main/LICENSE)
+[MIT](https://github.com/roosta/fzf-folds.vim/blob/main/LICENSE)

@@ -1,19 +1,19 @@
-*fzfolds.txt*   Plugin that lets you fuzzy search for folds in file
+*fzf-folds.txt*   Plugin that lets you fuzzy search for folds in file
 Version:   0.1
 Author:    Daniel Berg <mail@roosta.sh>
 ==============================================================================
-RATIONALE                                                    *fzfolds-rationale*
+RATIONALE                                                  *fzf-folds-rationale*
 
 I don't know about you, but I love stuff like ctags, and I also love fzf. I
 love searching through my ctags using fzf. I also love folds, and use them
 liberally, especially fold markers, and I often section off parts of a file
 using markers, like a lot of markers. But sometimes I need to find a specific
-fold, that might be deeply nested. That's where fzfolds come in, it lets you
+fold, that might be deeply nested. That's where fzf-folds come in, it lets you
 fuzzy match for folds, and will put you at the starting point of the fold
 selected.
 
 ==============================================================================
-REQUIREMENTS                                              *fzfolds-requirements*
+REQUIREMENTS                                            *fzf-folds-requirements*
 
 fzf.vim is required for this plugin to work. If you aren't familiar with fzf
 it's a commandline fuzzy finder, it lets you fuzzy search whatever you want
@@ -23,23 +23,23 @@ https://github.com/junegunn/fzf
 https://github.com/junegunn/fzf.vim
 
 ==============================================================================
-USAGE INSTRUCTIONS                                               *fzfolds-usage*
+USAGE INSTRUCTIONS                                             *fzf-folds-usage*
 
 :Folds                                                                  *:Folds*
 
-Open a fzf popup and search for folds in file. On accept fzfolds will move
-you to that folds line number. fzfolds will not open folds for you, just put
-you at the line number, unless `g:fzfolds_open = 1`
+Open a fzf popup and search for folds in file. On accept fzf-folds will move
+you to that folds line number. fzf-folds will not open folds for you, just put
+you at the line number, unless `g:fzf_folds_open = 1`
 
 
 ==============================================================================
-OPTIONS                                                        *fzfolds-options*
+OPTIONS                                                      *fzf-folds-options*
 
-Currently only one option: `g:fzfolds_open`, if set to `1` fzfolds will open
-just enough folds to show the fold you selected (`zv`)
+Currently only one option: `g:fzf_folds_open`, if set to `1` fzf-folds will
+open just enough folds to show the fold you selected (`zv`)
 
 ==============================================================================
-LICENSE                                                        *fzfolds-license*
+LICENSE                                                      *fzf-folds-license*
 
 MIT
 
