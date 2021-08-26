@@ -46,9 +46,9 @@ function! s:collect_folds() abort
       call cursor(scanline, 0)
       normal! zc
     endif
-
   endfor
 
+  call cursor(cursor_pos[1], cursor_pos[2])
   call map(folds, 'v:val[0] . ":" . v:val[2]')
   return folds
 endfunction
