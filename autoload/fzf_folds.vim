@@ -69,10 +69,9 @@ function! fzf_folds#run() abort
     return s:warn(v:exception)
   endtry
 
-  call fzf#run({
+  call fzf#run(fzf#wrap({
         \ 'source': folds,
         \ 'sink': function('s:sink'),
         \ 'options': ['--delimiter', ':', '--with-nth', '2..'],
-        \ 'window': { 'width': 0.9, 'height': 0.7 },
-        \ })
+        \ }))
 endfunction
