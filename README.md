@@ -42,17 +42,13 @@ fzf-folds introduce a command `:Folds`,
 `:Folds`
 
 Open a fzf popup and search for folds in file. On accept fzf-folds will move
-you to that folds line number. fzf-folds will not open folds for you, just put
-you at the line number, unless `g:fzf_folds_open = 1`
+you to that folds line number and open just enough folds to show the fold you
+selected (`zv`).
 
 It can be useful to bind this command to something:
 ```vim
 nnoremap <leader>jf :Folds<CR>
 ```
-## Options
-
-Currently only one option: `g:fzf_folds_open`, if set to `1` fzf-folds will open
-just enough folds to show the fold you selected (`zv`)
 
 ## Reference
 
