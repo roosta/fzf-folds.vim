@@ -54,6 +54,7 @@ function! s:collect_folds() abort
 endfunction
 
 function! s:sink(fold) abort
+  normal! m'
   let [linum; rest] = split(a:fold, ':')
   call cursor(linum, 0)
   if g:fzf_folds_open == 1
