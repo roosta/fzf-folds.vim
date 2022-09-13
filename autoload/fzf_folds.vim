@@ -28,7 +28,7 @@ function! s:collect_folds() abort
       call add(folds, [scanline, closed, foldtext])
       normal! zo
     endif
-    normal! zj
+    keepjumps normal! zj
     let prevline = scanline
     let scanline = line('.')
   endwhile
