@@ -72,6 +72,6 @@ function! fzf_folds#run() abort
   call fzf#run(fzf#wrap({
         \ 'source': folds,
         \ 'sink': function('s:sink'),
-        \ 'options': ['--delimiter', ':', '--with-nth', '2..'],
+        \ 'options': ['--delimiter', ':', '--with-nth', '2..', '--layout=reverse-list'],
         \ }))
 endfunction
