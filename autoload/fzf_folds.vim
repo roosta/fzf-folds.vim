@@ -14,7 +14,7 @@ function! s:collect_folds() abort
   let prevline = -1
   let folds = []
   let foldlevel = 0
-  let cursor_pos = getpos('.')
+  let view = winsaveview()
   call cursor(1, 0)
 
   " Locate every fold, store information that lets us close and move to a fold
@@ -35,7 +35,7 @@ function! s:collect_folds() abort
 
   if empty(folds)
     " Move cursor back where we started
-    call cursor(cursor_pos[1], cursor_pos[2])
+    call winrestview(view)
     throw 'No folds found'
   endif
 
@@ -48,7 +48,7 @@ function! s:collect_folds() abort
     endif
   endfor
 
-  call cursor(cursor_pos[1], cursor_pos[2])
+  call winrestview(view)
   call map(folds, 'v:val[0] . ":" . v:val[2]')
   return folds
 endfunction
