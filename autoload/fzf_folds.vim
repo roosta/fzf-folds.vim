@@ -14,7 +14,7 @@ function! s:collect_folds() abort
   let prevline = -1
   let folds = []
   let foldlevel = 0
-  let cursor_pos = getpos('.')
+  let view = winsaveview()
   call cursor(1, 0)
 
   " Locate every fold, store information that lets us close and move to a fold
@@ -28,14 +28,14 @@ function! s:collect_folds() abort
       call add(folds, [scanline, closed, foldtext])
       normal! zo
     endif
-    normal! zj
+    keepjumps normal! zj
     let prevline = scanline
     let scanline = line('.')
   endwhile
 
   if empty(folds)
     " Move cursor back where we started
-    call cursor(cursor_pos[1], cursor_pos[2])
+    call winrestview(view)
     throw 'No folds found'
   endif
 
@@ -48,17 +48,16 @@ function! s:collect_folds() abort
     endif
   endfor
 
-  call cursor(cursor_pos[1], cursor_pos[2])
+  call winrestview(view)
   call map(folds, 'v:val[0] . ":" . v:val[2]')
   return folds
 endfunction
 
 function! s:sink(fold) abort
+  normal! m'
   let [linum; rest] = split(a:fold, ':')
   call cursor(linum, 0)
-  if g:fzf_folds_open == 1
-    normal! zv
-  endif
+  normal! zvzz
 endfunction
 
 function! fzf_folds#run() abort
@@ -68,10 +67,9 @@ function! fzf_folds#run() abort
     return s:warn(v:exception)
   endtry
 
-  call fzf#run({
+  call fzf#run(fzf#wrap({
         \ 'source': folds,
         \ 'sink': function('s:sink'),
-        \ 'options': ['--delimiter', ':', '--with-nth', '2..'],
-        \ 'window': { 'width': 0.9, 'height': 0.7 },
-        \ })
+        \ 'options': ['--delimiter', ':', '--with-nth', '2..', '--layout=reverse-list'],
+        \ }))
 endfunction

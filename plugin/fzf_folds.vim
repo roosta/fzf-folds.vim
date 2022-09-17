@@ -7,8 +7,4 @@ if exists('g:loaded_fzf_folds')
 endif
 let g:loaded_fzf_folds = 1
 
-if !exists('g:fzf_folds_open')
-  let g:fzf_folds_open = 0
-endif
-
 command! Folds call fzf_folds#run()
